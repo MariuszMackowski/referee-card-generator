@@ -54,13 +54,13 @@ class Example(QWidget):
         self.bn_zapis_path= QPushButton(self)
         self.bn_sciagnij = QPushButton("Sciagnij", self)
         
-        self.bn_logo_1_path.setIcon(QtGui.QIcon('folder.png'))
+        self.bn_logo_1_path.setIcon(QtGui.QIcon('./res/folder.png'))
         self.bn_logo_1_path.setIconSize(QtCore.QSize(16,16))
         
-        self.bn_logo_2_path.setIcon(QtGui.QIcon('folder.png'))
+        self.bn_logo_2_path.setIcon(QtGui.QIcon('./res/folder.png'))
         self.bn_logo_2_path.setIconSize(QtCore.QSize(16,16))
         
-        self.bn_zapis_path.setIcon(QtGui.QIcon('folder.png'))
+        self.bn_zapis_path.setIcon(QtGui.QIcon('./res/folder.png'))
         self.bn_zapis_path.setIconSize(QtCore.QSize(16,16))
         
         self.bn_generuj.clicked.connect(self.button_generate)

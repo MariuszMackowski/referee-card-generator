@@ -15,17 +15,6 @@ Created on Fri Sep 20 12:56:24 2019
 import cv2, numpy as np
 from PIL import Image, ImageFont, ImageDraw
 
-## INPUT ##
-#liga = "IV Liga"
-#miejsce = "Wolin"
-#czas_data = "21.09.2019 r. godz. 16:00"
-#sedzia = "Michas"
-#asystent1 = "Imie Nazwisko"
-#asystent2 = "Imie Nazwisko"
-#klub_1_nazwa = "POGON Szczecin".replace(" ", "\n")
-#klub_2_nazwa = "POGON Szczecin".replace(" ", "\n")
-
-
 
 def format_name(name):
     splited_name = name.split(" ")
@@ -59,16 +48,16 @@ def generuj(napisy):
         logo2 = None
     
     ## READ BASE IMAGE ##
-    orig = cv2.imread("wizytowka.png")
+    orig = cv2.imread("./res/wizytowka.png")
     w_i, h_i = orig.shape[1],orig.shape[0]
     cv2_im_rgb = cv2.cvtColor(orig,cv2.COLOR_BGR2RGB)
     pil_im = Image.fromarray(cv2_im_rgb)
     draw = ImageDraw.Draw(pil_im)
     
     ## FONTS ##
-    font = ImageFont.truetype("arial-black.ttf", 20)
-    font2 = ImageFont.truetype("arial-italic.ttf", 16)
-    font3 = ImageFont.truetype("arial-black.ttf", 16)
+    font = ImageFont.truetype("./res/arial-black.ttf", 20)
+    font2 = ImageFont.truetype("./res/arial-italic.ttf", 16)
+    font3 = ImageFont.truetype("./res/arial-black.ttf", 16)
     
     ## TEXT WIDTH ##
     w_liga  = draw.textsize(liga.encode('utf-8'))[0]

@@ -21,9 +21,9 @@ def download_info(url):
     
     page = urllib2.urlopen(url)
     soup = BeautifulSoup(page, 'html.parser')        
-    ## ONE LOOP
     
-    print("=============")
+    
+   
     for link in soup.find_all('a'):
         href = link.get("href")
         if "klub" in href:
@@ -33,12 +33,11 @@ def download_info(url):
         elif "co-gdzie-kiedy" in href:
             names.append(link.get_text().replace("-",".").replace(" "," r. godz. "))
             print(link.get_text().replace("-",".").replace(" "," r. godz. "))
-    ## MIEJSCE
-    print("MIEJSCE: ")
+    
+    
     names.append(names[0].split(" ")[1])
-    print(names[0].split(" ")[1])
-    print("adresy obrazków")
-    nazwy = ["1.jpg","2.jpg"]
+    
+    nazwy = ["./res/1.jpg","./res/2.jpg"]
     names= names + nazwy
     
     i = 0
@@ -47,6 +46,6 @@ def download_info(url):
         if "news" in src:        
             download_logo(src, nazwy[i])
             i=i+1
-    print(names)
+    
     return names
 
