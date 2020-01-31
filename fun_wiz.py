@@ -17,6 +17,7 @@ from PIL import Image, ImageFont, ImageDraw
 
 
 def format_name(name):
+    ## Makes first word in club's name in UPPER
     splited_name = name.split(" ")
     name = splited_name[0].upper()
     for i in range(1,len(splited_name)):

@@ -54,6 +54,7 @@ class Example(QWidget):
         self.bn_zapis_path= QPushButton(self)
         self.bn_sciagnij = QPushButton("Sciagnij", self)
         
+        ## Buttons icons
         self.bn_logo_1_path.setIcon(QtGui.QIcon('./res/folder.png'))
         self.bn_logo_1_path.setIconSize(QtCore.QSize(16,16))
         
@@ -63,11 +64,13 @@ class Example(QWidget):
         self.bn_zapis_path.setIcon(QtGui.QIcon('./res/folder.png'))
         self.bn_zapis_path.setIconSize(QtCore.QSize(16,16))
         
+        ## Buttons Connections
         self.bn_generuj.clicked.connect(self.button_generate)
         self.bn_logo_1_path.clicked.connect(partial(self.button_path,self.edit_klub_1_logo))
         self.bn_logo_2_path.clicked.connect(partial(self.button_path,self.edit_klub_2_logo))
         self.bn_zapis_path.clicked.connect(partial(self.button_save,self.edit_zapis))
         self.bn_sciagnij.clicked.connect(self.button_download)
+        
         ## Layout
         grid = QGridLayout()
         grid.setSpacing(10)
@@ -123,8 +126,10 @@ class Example(QWidget):
         self.setWindowTitle('Wizytowka')
         self.show()
       
-    def button_download(self):
+        ## Button functions        
         
+    def button_download(self):
+        ## Scrap info from provided url. Fills EditLines.
         url = self.edit_link.text()
         if url != "":
             names = scrap.download_info(url)
@@ -137,15 +142,18 @@ class Example(QWidget):
             self.edit_klub_2_logo.setText(names[5]) 
 
     def button_path(self, line_edit):
+        ## Opens file dialog to provide clubs logos
         text = easygui.fileopenbox()
         line_edit.setText(text)
         
     def button_save(self, line_edit):
+        ## Opens file dialog to get save location
         text = easygui.filesavebox()
         line_edit.setText(text)
         
         
     def button_generate(self):
+        ## Gather info from EditLines to generate card
         napisy = [
                 str(self.edit_liga.text()),
                 str(self.edit_miejsce.text()),

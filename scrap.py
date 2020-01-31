@@ -10,6 +10,7 @@ import urllib.request as urllib2
 from urllib import request
 
 def download_logo(url, name):
+    ## Download and saves clubs logos
     link = "http://ligowiec.net/"
     f = open(name, 'wb')
     f.write(request.urlopen(link+url).read())
@@ -17,12 +18,11 @@ def download_logo(url, name):
 
 
 def download_info(url):
-    names = []
-    
+    ## Download clubs names, match day and hour.
+    ## Returning list of everything to fill LineEdits
+    names = []    
     page = urllib2.urlopen(url)
-    soup = BeautifulSoup(page, 'html.parser')        
-    
-    
+    soup = BeautifulSoup(page, 'html.parser') 
    
     for link in soup.find_all('a'):
         href = link.get("href")
@@ -32,13 +32,11 @@ def download_info(url):
                 print(link.get_text())
         elif "co-gdzie-kiedy" in href:
             names.append(link.get_text().replace("-",".").replace(" "," r. godz. "))
-            print(link.get_text().replace("-",".").replace(" "," r. godz. "))
+            print(link.get_text().replace("-",".").replace(" "," r. godz. "))    
     
-    
-    names.append(names[0].split(" ")[1])
-    
+    names.append(names[0].split(" ")[1])    
     nazwy = ["./res/1.jpg","./res/2.jpg"]
-    names= names + nazwy
+    names= names + nazwy    
     
     i = 0
     for img in soup.find_all("img"):
