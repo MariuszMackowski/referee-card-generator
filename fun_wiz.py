@@ -79,7 +79,7 @@ def generuj(napisy):
     draw.text(((w_i - w_asystent1)/2, 330), asystent1, font=font3, fill=(0,0,0))  
     draw.text(((w_i - w_asystent2)/2, 370), asystent2, font=font3, fill=(0,0,0)) 
     draw.text( (w_i * 0.1, h_i*0.4), klub_1_nazwa, font=font, fill=(0,0,0))  
-    draw.text( ( w_i * 0.75, h_i*0.4), klub_2_nazwa, font=font, fill=(0,0,0))  
+    draw.text( ( w_i * 0.75-50, h_i*0.4), klub_2_nazwa, font=font, fill=(0,0,0))  
     
     ## ADD LOGOS TO IMAGES
     im_napisany = cv2.cvtColor(np.array(pil_im), cv2.COLOR_RGB2BGR)

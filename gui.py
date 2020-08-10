@@ -140,6 +140,11 @@ class Example(QWidget):
             self.edit_miejsce.setText(names[3])
             self.edit_klub_1_logo.setText(names[4])
             self.edit_klub_2_logo.setText(names[5]) 
+            self.edit_liga.setText(names[6])
+            if len(names)>6:
+                self.edit_sedzia.setText(names[7])
+                self.edit_asystent_1.setText(names[8])
+                self.edit_asystent_2.setText(names[9])
 
     def button_path(self, line_edit):
         ## Opens file dialog to provide clubs logos

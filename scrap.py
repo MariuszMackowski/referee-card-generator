@@ -26,6 +26,9 @@ def download_info(url):
    
     for link in soup.find_all('a'):
         href = link.get("href")
+        if 'tabela' in href:
+            if not link.get_text() == '':
+                liga = link.get_text()
         if "klub" in href:
             if not link.get_text() ==  "":
                 names.append(link.get_text())
@@ -34,10 +37,10 @@ def download_info(url):
             names.append(link.get_text().replace("-",".").replace(" "," r. godz. "))
             print(link.get_text().replace("-",".").replace(" "," r. godz. "))    
     
-    names.append(names[0].split(" ")[1])    
+    names.append(names[0].split(" ")[-1])    
     nazwy = ["./res/1.jpg","./res/2.jpg"]
-    names= names + nazwy    
-    
+    names = names + nazwy    
+    names.append(liga)
     i = 0
     for img in soup.find_all("img"):
         src = img.get("src")
@@ -45,5 +48,16 @@ def download_info(url):
             download_logo(src, nazwy[i])
             i=i+1
     
+    for table in soup.find_all('table'):
+        if 'sędzia' in table.get_text():
+            ref = table.get_text()
+            break
+    ref=ref.split('sędzia: ')[1].split('uzupełnij')[0]
+    if not ref == '':        
+        print(ref)
+        ref=ref.split("\t")
+        names = names + ref
+        
+    
+    
     return names
-
