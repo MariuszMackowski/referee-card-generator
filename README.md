@@ -9,6 +9,7 @@ I got bored with pasteing everything to paint, so I automated this with Python.
 #### Used libraries: PyQt5, easygui, cv2, Pillow, bs4, urllib2
 
 Simple GUI allows user to scrape info from http://ligowiec.net/ and edit or provide it by yourself.
+
 ![empty_gui](https://user-images.githubusercontent.com/34914611/98465273-5fd67c80-21c8-11eb-95b8-efdd20ce8121.PNG)
 
 ## Example input and output:
