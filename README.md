@@ -27,7 +27,7 @@ Provided informations are placed on empty card:
 
 #### Output:
 
-![output](https://user-images.githubusercontent.com/34914611/98465270-5ea54f80-21c8-11eb-8eb3-8d27fa988536.png)
+![output](https://user-images.githubusercontent.com/34914611/98465451-69141900-21c9-11eb-9518-cacad0caf85b.png)
 
 
 #### Known bugs:
