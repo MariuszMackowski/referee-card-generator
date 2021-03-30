@@ -1,4 +1,4 @@
-# Business card generator
+# Referee card generator
 
 ## Description
 My brother is referee.
